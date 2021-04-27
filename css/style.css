@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  margin: 100px;
+}
+header h1 {
+  text-align: center;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+}
+main section {
+  background-color: #0078C1;
+  padding: 100px;
+}
+main .signInForm .mainForm {
+  align-self: center;
+  justify-self: center;
+  background-color: #666666;
+  border: 1px solid black;
+  margin: 10px;
+  padding: 50px;
+  text-align: left;
+}
+main .signInForm .mainForm input[type=text], main .signInForm .mainForm [type=number] {
+  margin: 10px;
+  border-radius: 5px;
+}
+main .signInForm .mainForm button {
+  margin: 50px 20px;
+  background-color: #0078C1;
+  border: 2px solid black;
+  padding: 5px;
+  box-shadow: 2px;
+}
+main .signInForm .mainForm button:hover {
+  background-color: #666666;
+}
+main aside {
+  align-self: center;
+  justify-self: center;
+}
+
+footer {
+  margin: 100px;
+}
+
+/*# sourceMappingURL=style.css.map */
