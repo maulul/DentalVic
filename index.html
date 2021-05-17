@@ -26,37 +26,38 @@
 
         <!-- PACIENT INFORMATION -->
         <section>
-            <form class="signInForm" action="">
+            <form name="firstForm" class="signInForm" action="">
                 <div class="mainForm">
                     <div>
                         <label for="name"> <strong>Nombre: </strong></label>
                     </div>
                     <div>
-                        <input id="name" type="text" placeholder="Ingrese su nombre" required>
+                        <input id="name" type="text" placeholder="Ingrese su nombre" >
                     </div>
                     <div>
                         <label for="lastName"> <strong>Apellido: </strong></label>
                     </div>
                     <div>
-                        <input id="lastName" type="text" placeholder="Ingrese su apellido" required>
+                        <input id="lastName" type="text" placeholder="Ingrese su apellido" >
                     </div>
                     <div>
                         <label for="DNI"><strong>Ingrese su numero de documento:</strong></label>
                         <br>
-                        <input type="number" id="DNI" name="DNI" required>
+                        <input type="number" id="DNI" name="DNI" >
                     </div>
                     <div class="consSelect">
                         <div>
                             <label for="consSelect"><strong>Elije consultorio:</strong></label>
                         </div>
                         <div>
-                            <select class="form-control" id="consSelect">
+                            <select class="form-control" id="consSelect" onchange="consultorio()">
                                 <option>Villa Crespo</option>
                                 <option>Lanus</option>
                             </select>
+                            <p id="demo"></p>
                         </div>
                     </div>
-                    <button type="submit">Submit</button>
+                    <button type="button" onclick="pedirDatos()">Submit</button>
                 </div>
             </form>
         </section>
