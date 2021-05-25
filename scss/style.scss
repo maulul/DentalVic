@@ -1,65 +1,111 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  box-sizing: content-box;
 }
 
 header {
-    margin: 100px;
-    h1 {
-        text-align: center;
-    }
-}
+  position: fixed;
+  width: 100%;
+  z-index: 2;
 
-main {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
+  .sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #1BA9CF;
+    overflow-x: hidden;
+    border: 2px solid black;    
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+
+  .sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+
+
+
+  .sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
+  .openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #1BA9CF;
+    border: 2px solid black;
+    color: white;
+    padding: 10px 15px;
     
+  }
 
-    section{
-        background-color: #0078C1;
-        padding: 100px;
-    }
 
-    .signInForm {
-        
 
-        .mainForm {
-            
-            align-self: center;
-            justify-self: center;   
-            background-color: #666666;
-            border: 1px solid black;
-            margin: 10px;
-            padding: 50px;
-            text-align: left;
-
-            input[type=text], [type=number] {
-                margin: 10px;
-                border-radius: 5px;
-            }
-            button {
-                margin: 50px 20px;
-                background-color: #0078C1;
-                border: 2px solid black;
-                padding: 5px;
-                box-shadow: 2px;
-                &:hover{
-                    background-color: #666666;
-                }
-            }
-
-        }
-    }
-
-    aside {
-        align-self: center;
-            justify-self: center;  
-    }
+  #main {
+    transition: margin-left .5s;
+    padding-top: 16px;
+    padding-left: 5px;
+  }
 }
 
 
-footer {
-    margin: 100px;
+section {
+  margin: 150px 0;
+  width: 100%;
+
+  .signInForm {
+    background-color: #1BA9CF;
+    border: 2px solid black;
+    padding: 100px 50px;
+
+    .mainForm {
+      background-color: #C1C1C1;
+      padding: 50px;
+      border: 2px solid black;
+
+      .form-control {
+        margin-bottom: 20px;
+      }
+
+      .form-check-input{
+        margin-top: 10px;
+      }
+
+      .form-check-label {
+        margin-top: 5px;
+      }
+
+      .villaCrespoDays .lanusDays {
+        display: hidden;
+      }
+    }
+
+    button {
+      
+      background-color: #1BA9CF;
+      border: 2px solid black;
+      padding: 5px;
+      margin-top: 20px;
+    }
+  }
+
+  
+
 }

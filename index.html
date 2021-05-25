@@ -15,63 +15,100 @@
 </head>
 
 <body>
-    <header>
-        <!-- MAIN TITLE -->
-        <h1>
-            Consultorio odontologico DentalVic
-        </h1>
+    <header class="container">
+        <div id="mySidebar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            <p>Informacion del paciente y el turno</p>
+        </div>
+
+        <div id="main">
+            <button class="openbtn" onclick="openNav()">☰ Mis turnos</button>
+        </div>
     </header>
 
-    <main>
-
-        <!-- PACIENT INFORMATION -->
-        <section>
-            <form name="firstForm" class="signInForm" action="">
-                <div class="mainForm">
-                    <div>
-                        <label for="name"> <strong>Nombre: </strong></label>
-                    </div>
-                    <div>
-                        <input id="name" type="text" placeholder="Ingrese su nombre" >
-                    </div>
-                    <div>
-                        <label for="lastName"> <strong>Apellido: </strong></label>
-                    </div>
-                    <div>
-                        <input id="lastName" type="text" placeholder="Ingrese su apellido" >
-                    </div>
-                    <div>
-                        <label for="DNI"><strong>Ingrese su numero de documento:</strong></label>
-                        <br>
-                        <input type="number" id="DNI" name="DNI" >
-                    </div>
-                    <div class="consSelect">
+    <main class="container-fluid">
+        <div class="row">
+            <!-- PATIENT INFORMATION -->
+            <section class="col-md-12 col-lg-6">
+                <form name="firstForm" class="signInForm " action="">
+                    <div class="mainForm ">
                         <div>
-                            <label for="consSelect"><strong>Elije consultorio:</strong></label>
+                            <label for="name"> <strong>Nombre: </strong></label>
                         </div>
                         <div>
-                            <select class="form-control" id="consSelect" onchange="consultorio()">
-                                <option>Villa Crespo</option>
-                                <option>Lanus</option>
-                            </select>
-                            <p id="demo"></p>
+                            <input id="name" type="text" placeholder="Ingrese su nombre">
                         </div>
-                    </div>
-                    <button type="button" onclick="pedirDatos()">Submit</button>
-                </div>
-            </form>
-        </section>
-
-
-        <aside>
+                        <div>
+                            <label for="lastName"> <strong>Apellido: </strong></label>
+                        </div>
+                        <div>
+                            <input id="lastName" type="text" placeholder="Ingrese su apellido">
+                        </div>
+                        <div>
+                            <label for="DNI"><strong>Ingrese su numero de documento:</strong></label>
+                            <br>
+                            <input type="number" id="DNI" name="DNI">
+                        </div>
+                        <div class="consSelect">
+                            <div>
+                                <label for="consSelect"><strong>Elije consultorio:</strong></label>
+                            </div>
+                            <div>
+                                <select class="form-control" id="consSelect" onchange="mostrarDias()">
+                                    <option>Seleccione un consultorio</option>
+                                    <option class="consulElegido">Villa Crespo</option>
+                                    <option class="consulElegido">Lanus</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="eleccionDia">
+                            <div id="vcDays" class="form-group form-check villaCrespoDays" style="display: none;">
+                                <div>
+                                    <input type="checkbox" class="form-check-input" id="Martes">
+                                    <label class="form-check-label" for="Martes">Martes</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" class="form-check-input" id="Jueves">
+                                    <label class="form-check-label" for="Jueves">Jueves</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" class="form-check-input" id="Sabado">
+                                    <label class="form-check-label" for="Sabado">Sabado</label>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="lDays" class="form-group form-check lanusDays" style="display: none;">
+                                    <div>
+                                        <input type="checkbox" class="form-check-input" id="Lunes">
+                                        <label class="form-check-label" for="Lunes">Lunes</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" class="form-check-input" id="Miercoles">
+                                        <label class="form-check-label" for="Miercoles">Miercoles</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" class="form-check-input" id="Viernes">
+                                        <label class="form-check-label" for="Virnes">Viernes</label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button type="button" onclick="pedirDatos()">Confirmar turno</button>
+                                </div>
+                            </div>
+                        </div>    
+                </form>
+            </section>
 
             <!-- LOGO -->
 
-            <div class="mainLogo">
-                <img src="imagenes/Logo_PNG_A4_logo_vertical.png" alt="" width="1000" height="600">
-            </div>
-        </aside>
+            <aside class="col-md-6 col-lg-6">
 
+
+                <div class="mainLogo ">
+                    <img src="imagenes/Logo_PNG_A4_logo_vertical.png" alt="" width="1000" height="600">
+                </div>
+            </aside>
+        </div>
     </main>
 
     <footer>
@@ -92,6 +129,7 @@
     </script>
     <!-- MY JAVASCRIPT -->
     <script src="index.js"></script>
+    <script src="./Functions/functions.js"></script>
 </body>
- 
+
 </html>

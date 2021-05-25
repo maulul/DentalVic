@@ -4,52 +4,88 @@
   box-sizing: border-box;
 }
 
-header {
-  margin: 100px;
-}
-header h1 {
-  text-align: center;
+body {
+  box-sizing: content-box;
 }
 
-main {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto;
+header {
+  position: fixed;
+  width: 100%;
+  z-index: 2;
 }
-main section {
-  background-color: #0078C1;
-  padding: 100px;
+header .sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #1BA9CF;
+  overflow-x: hidden;
+  border: 2px solid black;
+  transition: 0.5s;
+  padding-top: 60px;
 }
-main .signInForm .mainForm {
-  align-self: center;
-  justify-self: center;
-  background-color: #666666;
-  border: 1px solid black;
-  margin: 10px;
+header .sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+header .sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+header .openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #1BA9CF;
+  border: 2px solid black;
+  color: white;
+  padding: 10px 15px;
+}
+header #main {
+  transition: margin-left 0.5s;
+  padding-top: 16px;
+  padding-left: 5px;
+}
+
+section {
+  margin: 150px 0;
+  width: 100%;
+}
+section .signInForm {
+  background-color: #1BA9CF;
+  border: 2px solid black;
+  padding: 100px 50px;
+}
+section .signInForm .mainForm {
+  background-color: #C1C1C1;
   padding: 50px;
-  text-align: left;
+  border: 2px solid black;
 }
-main .signInForm .mainForm input[type=text], main .signInForm .mainForm [type=number] {
-  margin: 10px;
-  border-radius: 5px;
+section .signInForm .mainForm .form-control {
+  margin-bottom: 20px;
 }
-main .signInForm .mainForm button {
-  margin: 50px 20px;
-  background-color: #0078C1;
+section .signInForm .mainForm .form-check-input {
+  margin-top: 10px;
+}
+section .signInForm .mainForm .form-check-label {
+  margin-top: 5px;
+}
+section .signInForm .mainForm .villaCrespoDays .lanusDays {
+  display: hidden;
+}
+section .signInForm button {
+  background-color: #1BA9CF;
   border: 2px solid black;
   padding: 5px;
-  box-shadow: 2px;
-}
-main .signInForm .mainForm button:hover {
-  background-color: #666666;
-}
-main aside {
-  align-self: center;
-  justify-self: center;
-}
-
-footer {
-  margin: 100px;
+  margin-top: 20px;
 }
 
 /*# sourceMappingURL=style.css.map */
