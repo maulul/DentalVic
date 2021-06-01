@@ -63,74 +63,83 @@
                         </div>
                         <div>
                             <div id="vcDays" class="form-group form-check villaCrespoDays eleccionDia"
-                                style="display: none;" onchange="mostrarHorarios()">
+                                style="display: none;">
                                 <div>
-                                    <h2>Elije el dia</h2>
-                                </div>
-                                <div>
-                                    <input type="radio" id="Martes" name="dia" value="Martes"> Martes
-                                </div>
-
-                                <div>
-                                    <input type="radio" id="Jueves" name="dia" value="Jueves"> Jueves
-                                </div>
-
-                                <div>
-                                    <input type="radio" id="Sabado" name="dia" value="Sabado"> Sabado
+                                    <div>
+                                        <label for="daySelect"><strong>Elije dia:</strong></label>
+                                    </div>
+                                    <select class="form-control selectedDay" id="daySelect" onchange="mostrarHorarios(event)">
+                                        <option>Seleccione su día de atención</option>
+                                        <option class="diaElegido">Martes</option>
+                                        <option class="diaElegido">Jueves</option>
+                                        <option class="diaElegido">Sabado</option>
+                                    </select>
                                 </div>
                             </div>
                             <div>
-                                <div id="lDays" class="form-group form-check lanusDays eleccionDia"
-                                    style="display: none;" onchange="mostrarHorarios()">
-                                    <div>
-                                        <h2>Elije el dia</h2>
-                                    </div>
-                                    <div>
-                                        <input type="radio" id="Lunes" name="dia" value="Lunes"  onclick="captDay(event)"> Lunes
-                                    </div>
-                                    <div>
-                                        <input type="radio" id="Miercoles" name="dia" value="Miercoles"> Miercoles
-                                    </div>
-                                    <div>
-                                        <input type="radio" id="Viernes" name="dia" value="Viernes"> Viernes
-                                    </div>
-                                </div>
-                                <div id="vcHours" class="form-group form-check villaCrespoHours eleccionHora"
+                                <div id="lDays" class="form-group2 form-check2 lanusDays eleccionDia"
                                     style="display: none;">
                                     <div>
-                                        <h2>Elije el horario</h2>
-                                    </div>
-                                    <div>
-                                        <input type="radio" id="9-10" name="Hora" value="9-10"> 9-10 hs
-                                    </div>
-
-                                    <div>
-                                        <input type="radio" id="10-11" name="Hora" value="10-11"> 10-11 hs
-                                    </div>
-
-                                    <div>
-                                        <input type="radio" id="11-12" name="Hora" value="11-12"> 11-12 hs
-                                    </div>
-                                </div>
-                                <div>
-                                    <div id="lHours" class="form-group form-check lanusHours eleccionHora"
-                                        style="display: none;" onchange="mostrarHorarios()">
                                         <div>
-                                            <h2>Elije el horario</h2>
+                                            <label for="daySelect2"><strong>Elije dia:</strong></label>
                                         </div>
-                                        <div>
-                                            <input type="radio" id="14-15" name="Hora" value="14-15"> 14-15
+                                        <select class="form-control selectedDay" id="daySelect2" onchange="mostrarHorarios(event)">
+                                            <option>Seleccione su día de atención</option>
+                                            <option class="diaElegido">Lunes</option>
+                                            <option class="diaElegido">Miercoles</option>
+                                            <option class="diaElegido">Viernes</option>
+                                        </select>
                                         </div>
-                                        <div>
-                                            <input type="radio" id="15-16" name="Hora" value="15-16"> 15-16
-                                        </div>
-                                        <div>
-                                            <input type="radio" id="16-17" name="16-17" value="Viernes"> 16-17
-                                        </div>
-                                    </div>
+                                    </div>     
+                                    <div id="vcHours" class="form-group form-check vcHours eleccionHora"
+                                    style="display: none;">
                                     <div>
-                                        <button type="button" onclick="pedirDatos()">Confirmar turno</button>
+                                        <div>
+                                            <label for="hourSelect"><strong>Elije horario:</strong></label>
+                                        </div>
+                                        <select class="form-control selectedHour" id="hourSelect" onchange="obtenerHorario(event)">
+                                            <option>Seleccione su horario de atención</option>
+                                            <option class="horarioElegido">14-15</option>
+                                            <option class="horarioElegido">15-16</option>
+                                            <option class="horarioElegido">17-20</option>
+                                        </select>
+                                        </div>
+                                    </div>           
+                                    <div id="lHours" class="form-group form-check lanusHours eleccionHora2"
+                                    style="display: none;">
+                                    <div>
+                                        <div>
+                                            <label for="hourSelect2"><strong>Elije horario:</strong></label>
+                                        </div>
+                                        <select class="form-control selectedHour" id="hourSelect2" onchange="obtenerHorario(event)">
+                                            <option>Seleccione su horario de atención</option>
+                                            <option class="horarioElegido">9-10</option>
+                                            <option class="horarioElegido">10-11</option>
+                                            <option class="horarioElegido">11-12</option>
+                                        </select>
+                                        </div>
+                                    </div>                                 
+                                    <div>
+                                        <button type="button" data-toggle="modal" data-target="#exampleModal" onclick="pedirDatos()">Confirmar turno</button>
                                     </div>
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h5 class="modal-title" id="exampleModalLabel">Mi turno</h5>
+                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                              </button>
+                                            </div>
+                                            <div id="infoModal"  class="modal-body">
+                                              
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
                                 </div>
                             </div>
                         </div>

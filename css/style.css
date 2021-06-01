@@ -72,15 +72,6 @@ section .signInForm .mainForm {
 section .signInForm .mainForm .form-control {
   margin-bottom: 20px;
 }
-section .signInForm .mainForm .form-check-input {
-  margin-top: 10px;
-}
-section .signInForm .mainForm .form-check-label {
-  margin-top: 5px;
-}
-section .signInForm .mainForm .villaCrespoDays .lanusDays {
-  display: hidden;
-}
 section .signInForm button {
   background-color: #1BA9CF;
   border: 2px solid black;
