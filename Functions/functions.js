@@ -48,18 +48,29 @@ function mostrarHorarios (event) {
     diaElegido = event.target.value; 
     let var5 = document.getElementById('lHours');
     let var6 = document.getElementById('vcHours');
-    
+    let var7 = document.getElementById('turnoConfirm');
+    let misTurnosBtn = document.getElementById('misTurnosBtn');
+
     if(diaElegido=="Lunes" || diaElegido== "Miercoles" || diaElegido=="Viernes"){
         var5.style.display="block";
+        var7.style.display="block";
+        misTurnosBtn.style.display="block";
     }
     else{
         var5.style.display="none";
+        var7.style.display="none";
+        misTurnosBtn.style.display="none";
     }
     if(diaElegido=="Martes" || diaElegido== "Jueves" || diaElegido=="Sabado"){
         var6.style.display="block";
+        var7.style.display="block";
+        misTurnosBtn.style.display="block";
+
     }
     else{
         var6.style.display="none";
+        var7.style.display="none";
+        misTurnosBtn.style.display="none";
     }
     
     return diaElegido;
@@ -85,16 +96,16 @@ const pedirDatos = () => {
     
     pacienteActual.forEach(e => {
         const midiv = document.getElementById('infoModal');
-        const div = document.createElement("div")
+        const div = document.createElement("div");        
         div.classList.add("modal-info")
         midiv.innerHTML = ""
         div.innerHTML =
             `
-            <divclass="modal-text">                                              
+            <div class="modal-text">                                              
             <p >Hola ${e.Nombre} ${e.Apellido}</p>
             <p> Tienes turno en ${e.Consultorio}  para el dia ${e.Dia} de ${e.Horario} </p>
-            <p> Gracias por elejirnos! </p>  
+            <p> Gracias por elegirnos! </p>  
         `;
-        midiv.appendChild(div)
+        midiv.appendChild(div)      
         })
 }

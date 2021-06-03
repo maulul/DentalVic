@@ -10,19 +10,31 @@
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- Fontawesome -->
+    <script src="https://kit.fontawesome.com/b311246d18.js" crossorigin="anonymous"></script>
     <!-- PAGE TITLE -->
     <title>Consultorio DentalVic</title>
 </head>
 
 <body>
-    <header class="container">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">home</a>
+                    </li>                  
+                    <li class="nav-item">
+                        <a class="nav-link" href="./turnos.html">turnos</a>
+                    </li>
+            </div>
+        </nav>
         <div id="mySidebar" class="sidebar">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-            <p>Informacion del paciente y el turno</p>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>            
         </div>
 
         <div id="main">
-            <button class="openbtn" onclick="openNav()">☰ Mis turnos</button>
+            <button id="misTurnosBtn" class="openbtn" style="display: none;" onclick="openNav()" >☰ Mis turnos</button>
         </div>
     </header>
 
@@ -101,7 +113,7 @@
                                             <option>Seleccione su horario de atención</option>
                                             <option class="horarioElegido">14-15</option>
                                             <option class="horarioElegido">15-16</option>
-                                            <option class="horarioElegido">17-20</option>
+                                            <option class="horarioElegido">17-18</option>
                                         </select>
                                         </div>
                                     </div>           
@@ -120,7 +132,7 @@
                                         </div>
                                     </div>                                 
                                     <div>
-                                        <button type="button" data-toggle="modal" data-target="#exampleModal" onclick="pedirDatos()">Confirmar turno</button>
+                                        <button id="turnoConfirm" type="button" data-toggle="modal" data-target="#exampleModal" style="display: none;" onclick="pedirDatos()">Confirmar turno</button>
                                     </div>
                                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
@@ -149,9 +161,7 @@
 
             <!-- LOGO -->
 
-            <aside class="col-md-6 col-lg-6">
-
-
+            <aside class="col-lg-6">
                 <div class="mainLogo ">
                     <img src="imagenes/Logo_PNG_A4_logo_vertical.png" alt="" width="1000" height="600">
                 </div>
@@ -159,6 +169,15 @@
         </div>
     </main>
 
+    <footer>
+        <div class="container">
+            <div class="row d-flex">
+                <p class="col-4">Conocenos tambien en nuestro instagram</p>
+                <a class="col-4 offset-4" href="https://www.instagram.com/dentalvic.ba/" target="_blank"><i
+                        class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
 
     <!-- JS BOOTSTRAP -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

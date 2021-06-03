@@ -18,7 +18,7 @@ const div = document.createElement("div")
 div.classList.add("cardStyle")
 div.innerHTML =
     `   
-    <img src=${e.img} alt="" width="500" height="300">
+    <img class="img-card" src=${e.img} alt="" width="500" height="300">
     <h5 class="card-title">${e.title}</h5>                                     
     <p class="card-text">${e.descrip}</p>    
     <a href="./turnos.html" class="btn btn-primary">${e.boton}</a>                           

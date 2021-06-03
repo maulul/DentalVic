@@ -8,6 +8,10 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+    background-color: white;
+}
+
 header {
     position: fixed;
     top: auto;
@@ -33,18 +37,24 @@ header {
 
         }
 
-        a {
-            color: #222222;
+        .consButton {
+            color: white;
             margin-top: 50px;
             padding: 10px;            
             background-color: #1BA9CF;
             text-decoration: none;
             width: 100px;
             text-align: center;                       
+            border: 1px solid black;
+            border-radius: 5px;
+
 
             &:hover {
                 text-decoration: none;
                 cursor: pointer;
+                background-color: white;
+                color: black;
+                
 
             }
         }
@@ -71,6 +81,42 @@ header {
 
 
 .cardStyle {
+    background-color: #BDBDBD;
     padding: 80px;
     border: 1px solid black;
+
+    .img-card{
+        border: 1px solid black;
+        margin: 5px;
+    }
+    .btn {
+        background-color: #1BA9CF;
+        border: 1px solid black;
+        border-radius: 5px;
+        
+        &:hover{
+            background-color: white;
+            color: black;
+            
+        }
+            
+            
+    }
+}
+
+footer {    
+    height: 10vh;
+    width: 100%;
+    background-color: #F8F9FA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .fab{
+        font-size: 50px;
+        color: #1BA9CF;        
+        &:hover{
+            color: black;
+
+        }
+    }
 }
