@@ -30,11 +30,13 @@
             </div>
         </nav>
         <div id="mySidebar" class="sidebar">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>            
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            <div id="insideSidebar">
+            </div>            
         </div>
 
         <div id="main">
-            <button id="misTurnosBtn" class="openbtn" style="display: none;" onclick="openNav()" >☰ Mis turnos</button>
+            <button id="misTurnosBtn" class="openbtn" style="display: none;" onclick="openNav() ; miTurno()";>☰ Mi turno</button>
         </div>
     </header>
 
@@ -48,13 +50,13 @@
                             <label for="name"> <strong>Nombre: </strong></label>
                         </div>
                         <div>
-                            <input id="name" type="text" placeholder="Ingrese su nombre">
+                            <input id="name" type="text" name="Nombre" placeholder="Ingrese su nombre">
                         </div>
                         <div>
                             <label for="lastName"> <strong>Apellido: </strong></label>
                         </div>
                         <div>
-                            <input id="lastName" type="text" placeholder="Ingrese su apellido">
+                            <input id="lastName" type="text" name="Apellido" placeholder="Ingrese su apellido">
                         </div>
                         <div>
                             <label for="DNI"><strong>Ingrese su numero de documento:</strong></label>
@@ -66,7 +68,7 @@
                                 <label for="consSelect"><strong>Elije consultorio:</strong></label>
                             </div>
                             <div>
-                                <select class="form-control" id="consSelect" onchange="mostrarDias()">
+                                <select id="consSelect" onchange="mostrarDias()">
                                     <option>Seleccione un consultorio</option>
                                     <option class="consulElegido">Villa Crespo</option>
                                     <option class="consulElegido">Lanus</option>
@@ -74,13 +76,13 @@
                             </div>
                         </div>
                         <div>
-                            <div id="vcDays" class="form-group form-check villaCrespoDays eleccionDia"
+                            <div id="vcDays" class="eleccionDia"
                                 style="display: none;">
                                 <div>
                                     <div>
                                         <label for="daySelect"><strong>Elije dia:</strong></label>
                                     </div>
-                                    <select class="form-control selectedDay" id="daySelect" onchange="mostrarHorarios(event)">
+                                    <select class="selectedDay" id="daySelect" onchange="mostrarHorarios(event)">
                                         <option>Seleccione su día de atención</option>
                                         <option class="diaElegido">Martes</option>
                                         <option class="diaElegido">Jueves</option>
@@ -89,13 +91,13 @@
                                 </div>
                             </div>
                             <div>
-                                <div id="lDays" class="form-group2 form-check2 lanusDays eleccionDia"
+                                <div id="lDays" class="eleccionDia"
                                     style="display: none;">
                                     <div>
                                         <div>
                                             <label for="daySelect2"><strong>Elije dia:</strong></label>
                                         </div>
-                                        <select class="form-control selectedDay" id="daySelect2" onchange="mostrarHorarios(event)">
+                                        <select class="selectedDay" id="daySelect2" onchange="mostrarHorarios(event)">
                                             <option>Seleccione su día de atención</option>
                                             <option class="diaElegido">Lunes</option>
                                             <option class="diaElegido">Miercoles</option>
@@ -103,13 +105,13 @@
                                         </select>
                                         </div>
                                     </div>     
-                                    <div id="vcHours" class="form-group form-check vcHours eleccionHora"
+                                    <div id="vcHours" class="vcHours eleccionHora"
                                     style="display: none;">
                                     <div>
                                         <div>
                                             <label for="hourSelect"><strong>Elije horario:</strong></label>
                                         </div>
-                                        <select class="form-control selectedHour" id="hourSelect" onchange="obtenerHorario(event)">
+                                        <select class="selectedHour" id="hourSelect" onchange="obtenerHorario(event)">
                                             <option>Seleccione su horario de atención</option>
                                             <option class="horarioElegido">14-15</option>
                                             <option class="horarioElegido">15-16</option>
@@ -117,13 +119,13 @@
                                         </select>
                                         </div>
                                     </div>           
-                                    <div id="lHours" class="form-group form-check lanusHours eleccionHora2"
+                                    <div id="lHours" class="lanusHours eleccionHora2"
                                     style="display: none;">
                                     <div>
                                         <div>
                                             <label for="hourSelect2"><strong>Elije horario:</strong></label>
                                         </div>
-                                        <select class="form-control selectedHour" id="hourSelect2" onchange="obtenerHorario(event)">
+                                        <select class="selectedHour" id="hourSelect2" onchange="obtenerHorario(event)">
                                             <option>Seleccione su horario de atención</option>
                                             <option class="horarioElegido">9-10</option>
                                             <option class="horarioElegido">10-11</option>
@@ -132,7 +134,7 @@
                                         </div>
                                     </div>                                 
                                     <div>
-                                        <button id="turnoConfirm" type="button" data-toggle="modal" data-target="#exampleModal" style="display: none;" onclick="pedirDatos()">Confirmar turno</button>
+                                        <button id="turnoConfirm" type="button" data-toggle="modal" data-target="#exampleModal" style="display: none;" pedirDatos()">Confirmar turno</button>
                                     </div>
                                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
@@ -192,7 +194,7 @@
     <!-- MY JAVASCRIPT -->
     <script src="./Functions/functions.js"></script>
     <script src="index.js"></script>
-
+    
 </body>
 
 </html>

@@ -23,6 +23,16 @@ function openNav() {
 
 //Funcion para mostrar los dias del consultorio
 function mostrarDias(){
+    let nombre = document.getElementById('name').value;
+	let apellido = document.getElementById('lastName').value;
+	let DNI = document.getElementById('DNI').value;
+
+	if (nombre === '' || apellido === '' || DNI === ''){
+		alert ("Todos los campos son obligatorios");
+		return false;
+	}
+	
+
     var var1 = document.getElementById('consSelect').value;
     var var2 = document.getElementById('vcDays');   
     var var3 = document.getElementById('lDays');
@@ -48,36 +58,44 @@ function mostrarHorarios (event) {
     diaElegido = event.target.value; 
     let var5 = document.getElementById('lHours');
     let var6 = document.getElementById('vcHours');
-    let var7 = document.getElementById('turnoConfirm');
-    let misTurnosBtn = document.getElementById('misTurnosBtn');
+    
 
     if(diaElegido=="Lunes" || diaElegido== "Miercoles" || diaElegido=="Viernes"){
         var5.style.display="block";
-        var7.style.display="block";
-        misTurnosBtn.style.display="block";
+        
     }
     else{
-        var5.style.display="none";
-        var7.style.display="none";
-        misTurnosBtn.style.display="none";
+        var5.style.display="none";       
+        
     }
     if(diaElegido=="Martes" || diaElegido== "Jueves" || diaElegido=="Sabado"){
         var6.style.display="block";
-        var7.style.display="block";
-        misTurnosBtn.style.display="block";
+        
 
     }
     else{
-        var6.style.display="none";
-        var7.style.display="none";
-        misTurnosBtn.style.display="none";
+        var6.style.display="none";        
+        
     }
     
     return diaElegido;
 }
 
 function obtenerHorario (event) {
-    return horarioElegido = event.target.value
+    horarioElegido = event.target.value;     
+    let turnoConfirm = document.getElementById('turnoConfirm');
+
+    if(horarioElegido=="14-15" || horarioElegido== "15-16" || horarioElegido=="17-18"
+        || horarioElegido=="9-10" || horarioElegido=="10-11" || horarioElegido=="11-12"){
+        
+        turnoConfirm.style.display="block";
+    }
+    else {
+        turnoConfirm.style.display="none";
+
+    }
+   
+    return horarioElegido;
 
 }
 
@@ -105,7 +123,34 @@ const pedirDatos = () => {
             <p >Hola ${e.Nombre} ${e.Apellido}</p>
             <p> Tienes turno en ${e.Consultorio}  para el dia ${e.Dia} de ${e.Horario} </p>
             <p> Gracias por elegirnos! </p>  
+            </div>
+        `;
+        midiv.appendChild(div)      
+        })
+
+        misTurnosBtn.style.display="block";
+}
+
+
+
+const miTurno = () => {
+    let pacienteActual = [{Nombre:nombrePaciente,Apellido:apellidoPaciente,DNI:numeroDni,Consultorio:consultorioElegido,Dia:diaElegido,Horario:horarioElegido}];
+    
+    pacienteActual.forEach(e => {
+        const midiv = document.getElementById('insideSidebar');
+        const div = document.createElement("div");        
+        div.classList.add("sidebar-info")
+        midiv.innerHTML = ""
+        div.innerHTML =
+            `
+            <div class="sidbar-text">                                              
+            <p >Hola ${e.Nombre} ${e.Apellido}</p>
+            <p> Tienes turno en ${e.Consultorio}  para el dia ${e.Dia} de ${e.Horario} </p>
+            <p> Gracias por elegirnos! </p>  
+            </div>
         `;
         midiv.appendChild(div)      
         })
 }
+
+
