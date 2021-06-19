@@ -1,9 +1,9 @@
-let nombrePaciente 
-let apellidoPaciente
-let numeroDni 
-let consultorioElegido
-let diaElegido
-let horarioElegido
+let nombrePaciente;
+let apellidoPaciente;
+let numeroDni;
+let consultorioElegido;
+let diaElegido;
+let horarioElegido;
 
 //Sidebar function
 
@@ -21,7 +21,7 @@ function openNav() {
 
  
 
-//Funcion para mostrar los dias del consultorio
+//Funcion para mostrar los dias del consultorio y validacion
 function mostrarDias(){
     let nombre = document.getElementById('name').value;
 	let apellido = document.getElementById('lastName').value;
@@ -33,65 +33,71 @@ function mostrarDias(){
 	}
 	
 
-    var var1 = document.getElementById('consSelect').value;
-    var var2 = document.getElementById('vcDays');   
-    var var3 = document.getElementById('lDays');
-    if(var1=="Villa Crespo"){
-        var2.style.display="block";
+    var consSelect = document.getElementById('consSelect').value;
+    var vcDays = document.getElementById('vcDays');   
+    var lDays = document.getElementById('lDays');
+    if(consSelect=="Villa Crespo"){
+        vcDays.style.display="block";
     }
     else{
-        var2.style.display="none";
+        vcDays.style.display="none";
     }
 
-    if(var1=="Lanus"){
-        var3.style.display="block";
+    if(consSelect=="Lanus"){
+        lDays.style.display="block";
     }
     else{
-        var3.style.display="none";
+        lDays.style.display="none";
     }
-    return consultorioElegido = var1;
+    return consultorioElegido = consSelect;
 
 }
 
+//Funcion para mostrar los horarios
 
 function mostrarHorarios (event) {
     diaElegido = event.target.value; 
-    let var5 = document.getElementById('lHours');
-    let var6 = document.getElementById('vcHours');
+    let lcHours = document.getElementById('lHours');
+    let vcHours = document.getElementById('vcHours');
     
 
     if(diaElegido=="Lunes" || diaElegido== "Miercoles" || diaElegido=="Viernes"){
-        var5.style.display="block";
+        lcHours.style.display="block";
         
     }
     else{
-        var5.style.display="none";       
+        lcHours.style.display="none";       
         
     }
     if(diaElegido=="Martes" || diaElegido== "Jueves" || diaElegido=="Sabado"){
-        var6.style.display="block";
+        vcHours.style.display="block";
         
 
     }
     else{
-        var6.style.display="none";        
+        vcHours.style.display="none";        
         
     }
     
     return diaElegido;
 }
 
+//Funcion que hablita la opcion de confirmar turno y sacar turno nuevo
+
 function obtenerHorario (event) {
     horarioElegido = event.target.value;     
     let turnoConfirm = document.getElementById('turnoConfirm');
+    let resetForm = document.getElementById('resetForm');
 
-    if(horarioElegido=="14-15" || horarioElegido== "15-16" || horarioElegido=="17-18"
-        || horarioElegido=="9-10" || horarioElegido=="10-11" || horarioElegido=="11-12"){
+    if(horarioElegido=="14-15 hs" || horarioElegido== "15-16 hs" || horarioElegido=="17-18 hs"
+        || horarioElegido=="9-10 hs" || horarioElegido=="10-11 hs" || horarioElegido=="11-12 hs"){
         
         turnoConfirm.style.display="block";
+        resetForm.style.display="block";
     }
     else {
         turnoConfirm.style.display="none";
+        resetForm.style.display="none";
 
     }
    
@@ -103,7 +109,7 @@ function obtenerHorario (event) {
 
 
 const pedirDatos = () => {
-    idCount = datosPacientes.length
+    idCount = datosPacientes.length;
     nombrePaciente = $('#name').val();
     apellidoPaciente = $('#lastName').val();
     numeroDni = $('#DNI').val();
@@ -120,8 +126,8 @@ const pedirDatos = () => {
         div.innerHTML =
             `
             <div class="modal-text">                                              
-            <p >Hola ${e.Nombre} ${e.Apellido}</p>
-            <p> Tienes turno en ${e.Consultorio}  para el dia ${e.Dia} de ${e.Horario} </p>
+            <p >Hola ${e.Nombre}, ${e.Apellido}!</p>
+            <p> Tienes turno en ${e.Consultorio}  para el dia ${e.Dia}, de ${e.Horario}. </p>
             <p> Gracias por elegirnos! </p>  
             </div>
         `;
@@ -131,7 +137,7 @@ const pedirDatos = () => {
         misTurnosBtn.style.display="block";
 }
 
-
+//Funcion que vuelca los datos en la pestaña de costado
 
 const miTurno = () => {
     let pacienteActual = [{Nombre:nombrePaciente,Apellido:apellidoPaciente,DNI:numeroDni,Consultorio:consultorioElegido,Dia:diaElegido,Horario:horarioElegido}];
@@ -153,4 +159,8 @@ const miTurno = () => {
         })
 }
 
+//Funcion para limpiar el formulario
 
+function formReset () {
+    document.getElementById("firstForm").reset();
+};

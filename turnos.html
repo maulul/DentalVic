@@ -44,7 +44,7 @@
         <div class="row">
             <!-- PATIENT INFORMATION -->
             <section class="col-md-12 col-lg-6">
-                <form name="firstForm" class="signInForm " action="">
+                <form id="firstForm" name="firstForm" class="signInForm " action="">
                     <div class="mainForm ">
                         <div>
                             <label for="name"> <strong>Nombre: </strong></label>
@@ -113,9 +113,9 @@
                                         </div>
                                         <select class="selectedHour" id="hourSelect" onchange="obtenerHorario(event)">
                                             <option>Seleccione su horario de atención</option>
-                                            <option class="horarioElegido">14-15</option>
-                                            <option class="horarioElegido">15-16</option>
-                                            <option class="horarioElegido">17-18</option>
+                                            <option class="horarioElegido">14-15 hs</option>
+                                            <option class="horarioElegido">15-16 hs</option>
+                                            <option class="horarioElegido">17-18 hs</option>
                                         </select>
                                         </div>
                                     </div>           
@@ -127,14 +127,15 @@
                                         </div>
                                         <select class="selectedHour" id="hourSelect2" onchange="obtenerHorario(event)">
                                             <option>Seleccione su horario de atención</option>
-                                            <option class="horarioElegido">9-10</option>
-                                            <option class="horarioElegido">10-11</option>
-                                            <option class="horarioElegido">11-12</option>
+                                            <option class="horarioElegido">9-10 hs</option>
+                                            <option class="horarioElegido">10-11 hs</option>
+                                            <option class="horarioElegido">11-12 hs</option>
                                         </select>
                                         </div>
                                     </div>                                 
                                     <div>
                                         <button id="turnoConfirm" type="button" data-toggle="modal" data-target="#exampleModal" style="display: none;" onclick = "pedirDatos()">Confirmar turno</button>
+                                        <button id="resetForm" type="button" style="display: none;" onclick="formReset()">Sacar otro turno</button>
                                     </div>
                                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
